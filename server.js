@@ -4,6 +4,7 @@ var app = express();
 var router = express.Router();
 var port = process.env.PORT || 80;
 var tickets = {
+    "ticket":[{
     "id": 35436,
     "created_at": "2015-07-20T22:55:29Z",
     "updated_at": "2016-05-05T10:38:52Z",
@@ -16,7 +17,22 @@ var tickets = {
     "submitter": "Michael_bolton@selu.edu",
     "assignee_id": 235323,
     "follower_ids": [235323, 234],
-    "tags": ["enterprise", "printers"],
+    "tags": ["enterprise", "printers"]},
+    {
+        "id": 352342436,
+        "created_at": "2018-12-20T14:54:23Z",
+        "updated_at": "2019-01-04T12:38:22Z",
+        "type": "incident",
+        "subject": "MFP Totally working great",
+        "description": "Its uhh. Its just working.",
+        "priority": "too high",
+        "status": "closed",
+        "recipient": "support_example@selu.edu",
+        "submitter": "Michael_bolton_office_friends@selu.edu",
+        "assignee_id": 234593,
+        "follower_ids": [25323, 214],
+        "tags": ["enterprise", "printers"]}
+    ]
    }
 
 //This is the section where it will access an endpoint such as:
