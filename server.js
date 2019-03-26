@@ -10,7 +10,13 @@ router.get('/test', function(req, res) {
     res.status(200).send('Hello world');
 });
 
+router.get('/list', function(req, res) {
+    res.status(200).send("SUCCESS");
+
+});
+
 app.use('/api', router);
+app.use('/rest', router);
 
 app.listen(port, function() {
     console.log("Node app is running at localhost:" + port)
