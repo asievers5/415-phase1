@@ -4,20 +4,20 @@ var app = express();
 var router = express.Router();
 var port = process.env.PORT || 80;
 var tickets = {
-    "ticket":[{
-    "id": 35436,
-    "created_at": "2015-07-20T22:55:29Z",
-    "updated_at": "2016-05-05T10:38:52Z",
-    "type": "incident",
-    "subject": "MFP not working right",
-    "description": "PC Load Letter? What does that even mean???",
-    "priority": "med",
-    "status": "open",
-    "recipient": "support_example@selu.edu",
-    "submitter": "Michael_bolton@selu.edu",
-    "assignee_id": 235323,
-    "follower_ids": [235323, 234],
-    "tags": ["enterprise", "printers"]},
+        "ticket":[{
+        "id": 35436,
+        "created_at": "2015-07-20T22:55:29Z",
+        "updated_at": "2016-05-05T10:38:52Z",
+        "type": "incident",
+        "subject": "MFP not working right",
+        "description": "PC Load Letter? What does that even mean???",
+        "priority": "med",
+        "status": "open",
+        "recipient": "support_example@selu.edu",
+        "submitter": "Michael_bolton@selu.edu",
+        "assignee_id": 235323,
+        "follower_ids": [235323, 234],
+        "tags": ["enterprise", "printers"]},
     {
         "id": 352342436,
         "created_at": "2018-12-20T14:54:23Z",
@@ -42,16 +42,21 @@ router.get('/test', function(req, res) {
 });
 
 router.get('/list', function(req, res) {
-    res.status(200).send(tickets);
+    res.status(200).send(tickets.ticket);
 
 });
 
 router.post('/ticket', function(req, res){
-
+    res.status(200).send(tickets.ticket)
 });
+
+router.get('/ticket/:id', function(req, res) {
+    res.status(200).send(req.params);
+})
 
 app.use('/api', router);
 app.use('/rest', router);
+app.use('/api/ticket/:id', router);
 
 app.listen(port, function() {
     console.log("Node app is running at localhost:" + port)
