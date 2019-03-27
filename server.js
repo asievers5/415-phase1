@@ -46,6 +46,10 @@ router.get('/list', function(req, res) {
 
 });
 
+router.get('/', function(req, res) {
+    res.status(200).send("Youre at the landing page.")
+});
+
 router.post('/ticket', function(req, res){
     res.status(200).send(tickets.ticket)
 });
