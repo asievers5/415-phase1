@@ -40,7 +40,7 @@ router.get('/test', function(req, res) {
 });
 
 router.get('/list', function(req, res) {
-    res.status(200).send(tickets.ticket);
+    res.status(200).send(tickets);
 
 });
 
@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/ticket', function(req, res){
-    res.status(200).send(tickets.ticket)
+    res.status(200).send(tickets)
 });
 
 router.get('/ticket/:id', function(req, res) {
