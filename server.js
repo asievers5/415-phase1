@@ -3,8 +3,7 @@ var chalk = require('chalk');
 var app = express();
 var router = express.Router();
 var port = process.env.PORT || 80;
-var tickets = {
-        "ticket":[{
+var tickets = [{
         "id": 35436,
         "created_at": "2015-07-20T22:55:29Z",
         "updated_at": "2016-05-05T10:38:52Z",
@@ -32,8 +31,7 @@ var tickets = {
         "assignee_id": 234593,
         "follower_ids": [25323, 214],
         "tags": ["enterprise", "printers"]}
-    ]
-   }
+    ];
 
 //This is the section where it will access an endpoint such as:
 //https://desolate-atoll-59781.herokuapp.com/api/test (note /api/test/)
@@ -47,7 +45,7 @@ router.get('/list', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    res.status(200).send("Youre at the landing page.")
+    res.status(200).send("API Docs\n /list to list all tickets\n")
 });
 
 router.post('/ticket', function(req, res){
@@ -55,8 +53,19 @@ router.post('/ticket', function(req, res){
 });
 
 router.get('/ticket/:id', function(req, res) {
-    res.status(200).send(req.params);
-})
+    for(var i = 0; i < tickets.length; i++){
+        if(tickets[i].id == req.params.id) {
+            status = tickets[i];
+            break;
+        }
+        else {
+            status = "Ticket not found";
+        }
+    }
+    res.status(200).send(status);
+});
+
+
 
 app.use('/api', router);
 app.use('/rest', router);
