@@ -33,10 +33,16 @@ router.get('/', function(req, res) {
 
 // POST http://localhost:8080/api/users
 // parameters sent with 
-app.post('/rest/ticket', function(req, res) {
+router.post('/rest/ticket', function(req, res) {
     var id = req.body.id;
     var owner = req.body.owner;
     var subject = req.body.subject;
+    var ticket = {
+        id,
+        owner,
+        subject
+    }
+    tickets.push(ticket);
 
     res.send(id + ' ' + owner + ' ' + subject);
 });
