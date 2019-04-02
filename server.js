@@ -3,6 +3,7 @@ var chalk = require('chalk');
 var app = express();
 var router = express.Router();
 var port = process.env.PORT || 80;
+var bodyParser = require('body-parser');
 var tickets = [{
         "id": 1,
         "owner" : "KC Sievers",
@@ -12,6 +13,9 @@ var tickets = [{
         "owner" : "Andrew Sievers",
         "subject" : "415 homework due"
     }];
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //This is the section where it will access an endpoint such as:
 //https://desolate-atoll-59781.herokuapp.com/api/test (note /api/test/)
@@ -26,8 +30,15 @@ router.get('/list', function(req, res) {
 router.get('/', function(req, res) {
     res.status(200).send("API Docs\n /list to list all tickets\n")
 });
-router.post('/ticket', function(req, res){
-    res.status(200).send(tickets)
+
+// POST http://localhost:8080/api/users
+// parameters sent with 
+app.post('/rest/ticket', function(req, res) {
+    var id = req.body.id;
+    var owner = req.body.owner;
+    var subject = req.body.subject;
+
+    res.send(id + ' ' + owner + ' ' + subject);
 });
 
 router.get('/ticket/:id', function(req, res) {
