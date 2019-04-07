@@ -10,7 +10,7 @@ var tickets = [{
     {
         "id": 2,
         "owner" : "Andrew Sievers",
-        "subject" : "415 homework asdfasddue"
+        "subject" : "415 homework"
     }];
 
 // GET https://polar-castle-32257.herokuapp.com/rest/list
