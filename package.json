@@ -1,14 +1,14 @@
 {
   "name": "Phase 1 - cmps 415",
   "version": "1.0.0",
-  "description": "Andrew Sievers Phase 1",
+  "description": "Andrew Sievers Phase1",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "node server.js"
   },
   "author": "Andrew Sievers",
-  "license": "lol",
+  "license": "n/a",
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.3.0",
