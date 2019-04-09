@@ -5,7 +5,7 @@ var port = process.env.PORT || 80;
 var bodyParser = require('body-parser');
 var tickets = [{
         "id": 1,
-        "created_at" : "KC Sievers",
+        "created_at" : "Andrew Sievers",
         "updated_at" : "Math homework due",
         "type": "homework",
         "subject": "Math",
